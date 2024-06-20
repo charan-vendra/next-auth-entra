@@ -21,7 +21,7 @@ export default async function Home() {
       { session?.user ? (
         <div>
           <p>Welcome { session.user.name}!</p>
-          <p>Job Title: </p>
+          <p>Job Title: {session.user.jobTitle}!</p>
           <div><SignOut /></div>
         </div>
       ): (
