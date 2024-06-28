@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { auth, signOut } from "./api/auth/[...nextauth]/route"
-import { userInfo } from "os";
+import IdleTimeoutHandler from "./IdleTimeoutHandler";
 
 function SignOut() {
   return(
@@ -23,6 +23,7 @@ export default async function Home() {
           <p>Welcome { session.user.name}!</p>
           <p>Job Title: {session.user.jobTitle}!</p>
           <div><SignOut /></div>
+          <IdleTimeoutHandler />
         </div>
       ): (
         <Link href="api/auth/signin"><button>Sign in</button></Link>
