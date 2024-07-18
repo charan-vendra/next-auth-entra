@@ -1,16 +1,11 @@
 "use client";
 
-import { useIdleTimeout } from 'use-idle-timeout';
-import { useRouter } from 'next/navigation';
+import { useIdleTimeout } from "use-idle-timeout";
+import { signOut } from "next-auth/react";
 
 const IdleTimeoutHandler = () => {
-  const router = useRouter();
-  const handleIdle = () => {
-    router.push('/signout');
-  };
-
-  useIdleTimeout(10000, handleIdle);
-
+  const handleIdle = async () => await signOut();
+  useIdleTimeout(5000, handleIdle);
   return null;
 };
 
